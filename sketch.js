@@ -24,10 +24,7 @@ function preload(){
   
   obstacle1 = loadImage("obstacle1.png");
   obstacle2 = loadImage("obstacle2.png");
-  obstacle3 = loadImage("obstacle3.png");
-  obstacle4 = loadImage("obstacle4.png");
-  obstacle5 = loadImage("obstacle5.png");
-  obstacle6 = loadImage("obstacle6.png");
+
   
   gameOverImg = loadImage("gameOver.png");
   restartImg = loadImage("restart.png");
@@ -71,6 +68,7 @@ function setup() {
 function draw() {
   //trex.debug = true;
   background(255);
+  textSize(20)
   text("Pontuação: "+ score, 30,50);
   
   if (gameState===PLAY){
@@ -132,7 +130,7 @@ function spawnClouds() {
     var cloud = createSprite(width+20,height-300,40,10);
     cloud.y = Math.round(random(80,120));
     cloud.addImage(cloudImage);
-    cloud.scale = 0.9;
+    cloud.scale = 0.5;
     cloud.velocityX = -3;
     
      //designe tempo de vida para a variável
@@ -155,19 +153,11 @@ function spawnObstacles() {
     obstacle.velocityX = -(6 + 3*score/100);
     
     //gere um obstáculo aleatório
-    var rand = Math.round(random(1,6));
+    var rand = Math.round(random(1,2));
     switch(rand) {
       case 1: obstacle.addImage(obstacle1);
               break;
       case 2: obstacle.addImage(obstacle2);
-              break;
-      case 3: obstacle.addImage(obstacle3);
-              break;
-      case 4: obstacle.addImage(obstacle4);
-              break;
-      case 5: obstacle.addImage(obstacle5);
-              break;
-      case 6: obstacle.addImage(obstacle6);
               break;
       default: break;
     }
